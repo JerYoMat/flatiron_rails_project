@@ -19,3 +19,10 @@ end
 
 
 #create! is the same as create except that it raises an exception for an invalid user rather than returning false. 
+
+#create Test admin user
+User.create!(name:  "Admin User",
+             email: "admin@example.org",
+             password:              "adminexample",
+             password_confirmation: "adminexample",
+             admin: true)
