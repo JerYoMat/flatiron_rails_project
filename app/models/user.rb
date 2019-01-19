@@ -8,7 +8,7 @@ validates :email, presence: true, length: { maximum: 255 },
                     format: { with: EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
 has_secure_password
-validates :password, presence: true, length: { minimum: 6 }
+validates :password, presence: true, length: { minimum: 6 },  allow_nil: true #the nil is there so when a user updates their profile they do not have to enter their password again.  New users are still required to provide a password with at least six characters. 
 
 def self.digest(string)
   cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
