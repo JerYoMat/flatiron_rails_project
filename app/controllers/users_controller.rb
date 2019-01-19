@@ -4,7 +4,8 @@ class UsersController < ApplicationController
 
   def index 
     @title = "All Users"
-    @users = User.all 
+    @users = User.paginate(page: params[:page])
+      #paginate takes a hash argument with key :page and value equal to the page requested.  'params[:page]' is generated automatically by the will-paginate gem
   end 
 
 
