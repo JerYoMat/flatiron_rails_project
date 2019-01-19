@@ -6,5 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-t1 = User.new(name: "Test User 1", email: "testuser@test.com", password: "atestuserpassword")
-t1.save 
+
+100.times do |n|
+  name  = Faker::Name.name
+  email = "example-#{n+1}@testusers.org"
+  password = "password"
+  User.create!(name:  name,
+               email: email,
+               password:              password,
+               password_confirmation: password)
+end
+
+
+#create! is the same as create except that it raises an exception for an invalid user rather than returning false. 
