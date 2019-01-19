@@ -3,12 +3,9 @@
 
 <%= will_paginate %>
 <ul class="users">
-  <% @users.each do |user| %>
-    <li>
-      <%= gravatar_for user, size: 50 %>
-      <%= link_to user.name, user %>
-    </li>
-  <% end %>
+  <%= render user%> 
 </ul>
 <%= will_paginate %>
 <!--Each of the will_paginate items adds in a little bar with page numbers.  Putting one at the top and bottom is merely for being friendly to users -->
+
+<!-- will_paginate iterates through users on its own so by refactoring the user bit we wish to display we can make this form very concise -->
