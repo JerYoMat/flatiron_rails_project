@@ -10,6 +10,10 @@ class SessionsController < ApplicationController
       u.name = auth['info']['name']
       u.email = auth['info']['email']
       u.uid = auth['uid']
+      pwd = SecureRandom.hex 
+      u.password = pwd 
+      u.password_confirmation = pwd
+    
     end
  
     log_in(@user)
