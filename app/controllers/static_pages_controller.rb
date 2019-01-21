@@ -2,7 +2,7 @@ class StaticPagesController < ApplicationController
   def home 
     @title = "Home"
     if logged_in?
-      @lessons = Lesson.all 
+      @options = @options = Lesson.all.map{|l| [l.name, l.id]}
       @tip  = current_user.tips.build
       @feed_items = current_user.feed.paginate(page: params[:page])
     end

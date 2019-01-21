@@ -5,7 +5,6 @@ class TipsController < ApplicationController
 
 
   def create
-    tip_params[:lesson]= tip_params[:lesson].to_i    
     @tip = current_user.tips.build(tip_params)
     if @tip.save
       flash[:success] = "Thanks! Your tip has been added."

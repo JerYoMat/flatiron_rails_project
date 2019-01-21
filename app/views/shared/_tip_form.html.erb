@@ -4,7 +4,8 @@
     <%= f.text_field :title, placeholder: "Add your title..." %>
     <%= f.text_field :link, placeholder: "Add your link..." %>
     <%= f.text_area :description, placeholder: "Add a description..." %>
-    <%= f.number_field :lesson_id, placeholder: "Add your lesson..." %>
+    <%= f.select(:lesson_id, @options) %>
+  
   </div>
   <%= f.submit "Post", class: "standard-input-button" %>
 <% end %>
