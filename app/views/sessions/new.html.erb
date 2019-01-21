@@ -12,7 +12,19 @@
 
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %> 
-      <%= link_to('Log in with Facebook!', '/auth/facebook') %> <br>
+      <div id="center">
+      <a href="/auth/facebook" class="btn btn-sm btn-social btn-facebook">
+        <span class="fa fa-facebook"></span>
+        Sign in with Facebook
+      </a>
+
+      <a href="/auth/github" class="btn btn-sm btn-social btn-github">
+        <span class="fa fa-github"></span>
+        Sign in with Github
+      </a>
+      </div>
+     
+      <br>
 
       <%= f.label :remember_me, class: "checkbox inline" do %>
        <br> <%= f.check_box :remember_me %>
