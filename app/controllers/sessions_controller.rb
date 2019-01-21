@@ -13,13 +13,28 @@ class SessionsController < ApplicationController
       pwd = SecureRandom.hex #To bypass validations for password set up in user model
       u.password = pwd 
       u.password_confirmation = pwd
-    
     end
- 
+    
     log_in(@user)
-
     redirect_to @user
  
+  end 
+
+  def github_create 
+    #Github OmniAuth Implementation 
+    
+    @user = User.find_or_create_by(uid: auth['uid']) do |user|  
+      user.provider = auth["provider"]
+      user.uid = auth["uid"]
+      user.name = auth["extra"]["raw_info"]["login"] 
+      user.email = Faker::Internet.email
+      pwd = SecureRandom.hex #To bypass validations for password set up in user model
+      user.password = pwd 
+      user.password_confirmation = pwd
+    end
+
+    log_in(@user)
+    redirect_to @user
   end 
 
 
@@ -47,4 +62,3 @@ class SessionsController < ApplicationController
     request.env['omniauth.auth']
   end
 end
-

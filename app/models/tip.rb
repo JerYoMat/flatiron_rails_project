@@ -8,6 +8,6 @@ class Tip < ApplicationRecord
   validates :description, presence: true 
   #LINK_REGEX = /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$/ix
   validates :link, presence: true, length: { maximum: 255 }
-  #format: { with: LINK_REGEX }
+  #,format: { with: LINK_REGEX }
 
 end

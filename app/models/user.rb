@@ -32,6 +32,8 @@ def remember
 end
 
 
+
+
 #Note that the remember_token argument in the authenticated? method is not the same as the attr_accessor defined up top.  
 def authenticated?(remember_token)
   return false if remember_digest.nil?  

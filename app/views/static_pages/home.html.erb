@@ -15,7 +15,7 @@
   </div>
 <% else %>
   <div class="center jumbotron">
-    <h1>Welcome to Learn HELP</h1>
+    <h1>Welcome to LearnHELP</h1>
 
     <h2>
       A place for students to provide helpful tips to others feeling the pain of starting something new. 
@@ -23,7 +23,8 @@
 <button class = "standard-input-button">
     <%=link_to "Sign up now!", signup_path%>
 </button><br><br>
-<%= link_to('Sign up with Facebook!', '/auth/facebook') %> 
+<%= link_to('Log in with Facebook!', '/auth/facebook') %> 
+<%= link_to('Log in with Github!', '/auth/github') %> 
   </div>
    <h3 id='plug'>What is the Flatiron School?  Who are you people? Check it out!     
   <%= link_to image_tag("learn.png", alt: "Learn Link"),
