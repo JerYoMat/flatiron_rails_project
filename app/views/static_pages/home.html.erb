@@ -23,8 +23,19 @@
 <button class = "standard-input-button">
     <%=link_to "Sign up now!", signup_path%>
 </button><br><br>
-<%= link_to('Log in with Facebook!', '/auth/facebook') %> 
-<%= link_to('Log in with Github!', '/auth/github') %> 
+
+
+<a href="/auth/facebook" class="btn btn-sm btn-social btn-facebook">
+  <span class="fa fa-facebook"></span>
+  Sign in with Facebook
+</a>
+
+<a href="/auth/github" class="btn btn-sm btn-social btn-github">
+  <span class="fa fa-github"></span>
+  Sign in with Github
+</a>
+
+
   </div>
    <h3 id='plug'>What is the Flatiron School?  Who are you people? Check it out!     
   <%= link_to image_tag("learn.png", alt: "Learn Link"),
