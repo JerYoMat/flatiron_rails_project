@@ -31,7 +31,7 @@ lesson_names = ["Ruby Basics", "Git and Github", "OO Ruby", "SQL", "ORM and Acti
 
 index = 0 
 while (index < lesson_names.length)
-  name = lesson_names[0]
+  name = lesson_names[index]
   Lesson.create!(
             name: name)
   index+=1
