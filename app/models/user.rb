@@ -1,5 +1,8 @@
 class User < ApplicationRecord
+  has_many :tips, dependent: :destroy
+  has_many :lessons, through: :tips 
   attr_accessor :remember_token
+
 
 validates :name, presence: true, length: {maximum:50} 
 before_save { self.email = email.downcase }
@@ -36,5 +39,9 @@ end
 def forget
   update_attribute(:remember_digest, nil)
 end
+
+def feed  
+  Tip.where("user_id = ?", id) #Using ? makes sure that the id is escaped to guard against SQL Injection 
+end 
 
 end

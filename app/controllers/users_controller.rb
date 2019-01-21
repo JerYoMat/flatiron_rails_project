@@ -2,13 +2,14 @@ class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index,:edit, :update, :destroy]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
-
+  before_action :set_user,       only: [:show, :edit, :update, :destroy]
   def index 
     @title = "User Index"
     @users = User.paginate(page: params[:page])
       #paginate takes a hash argument with key :page and value equal to the page requested.  'params[:page]' is generated automatically by the will-paginate gem
   end 
 
+  
 
   def new 
     @title = "Sign Up"
@@ -27,17 +28,17 @@ class UsersController < ApplicationController
 
   def show
     @title = "Profile Page"
-    set_user
     #debugger #uses byebug gem and provides a console in the browser
+    @tips = @user.tips.paginate(page: params[:page])
   end 
   
   def edit 
     @title = "Edit User Info"
-    set_user
+   
   end 
 
   def update 
-    set_user
+ 
     if @user.update_attributes(user_params)
       flash[:success] = "You changes have been saved."
       redirect_to @user
@@ -48,12 +49,13 @@ class UsersController < ApplicationController
 
 
   def destroy 
-    set_user.destroy 
+    @user.destroy 
     flash[:success] = "User has been deleted."
     redirect_to users_url
   end 
 
 
+  
 private 
 
   def user_params
@@ -63,14 +65,6 @@ private
   def set_user 
     @user = User.find(params[:id])
   end 
-
-  def logged_in_user
-    unless logged_in?
-      store_location 
-      flash[:danger] = "Please log in."
-      redirect_to login_url
-    end
-  end
 
   def correct_user
     set_user

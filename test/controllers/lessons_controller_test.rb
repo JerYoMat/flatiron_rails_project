@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class MicropostTest < ActiveSupport::TestCase
+class LessonsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

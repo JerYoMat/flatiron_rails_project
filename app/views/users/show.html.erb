@@ -7,4 +7,14 @@
       </h1>
     </section>
   </aside>
+  <div class="col-md-8">
+    <% if @user.tips.any? %>
+      <h3>Tips (<%= @user.tips.count %>)</h3>
+       <%= will_paginate @tips %>
+      <ol class="tips">
+        <%= render @tips %>
+      </ol>
+      <%= will_paginate @tips %>
+    <% end %>
+  </div>
 </div>

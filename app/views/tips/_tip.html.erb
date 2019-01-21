@@ -1,0 +1,15 @@
+<li id="tip-<%= tip.id %>"> <!--  opens up the possibility of manipulating individual tips at a future date using JavaScrip -->
+  <%= link_to gravatar_for(tip.user, size: 50), tip.user %>
+  <span class="user"><%= link_to tip.user.name, tip.user %></span>
+  <span class="title"><%= tip.title %></span><br>
+  <span class="link"><%= tip.link %></span><br>
+  <span class="description"><%= tip.description %></span><br>
+  <span class="lesson"><%= tip.lesson.name %></span><br>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(tip.created_at) %> ago.
+    <% if current_user?(tip.user) %>
+      <%= link_to "delete", tip, method: :delete,
+                                       data: { confirm: "Are you sure that you want to delete the tip #{tip.title}?" } %>
+    <% end %>
+  </span>
+</li>

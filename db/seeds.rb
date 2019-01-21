@@ -26,3 +26,27 @@ User.create!(name:  "Admin User",
              password:              "adminexample",
              password_confirmation: "adminexample",
              admin: true)
+
+
+10.times do 
+  name = Faker::Name.name 
+  unit = "Rails"
+  Lesson.create!(
+            name: name, 
+            unit: unit)
+
+end 
+
+
+users = User.order(:created_at).take(6)
+50.times do
+  title = Faker::Lorem.sentence(2)
+  description = Faker::Lorem.sentence(5)
+  link = Faker::Internet.url
+  lesson = "Rails"
+  users.each { |user| user.tips.create!(
+    title: title,
+    description: description,
+    link: link,
+    lesson_id: rand(1..10)) }
+end
