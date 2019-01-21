@@ -1,8 +1,23 @@
+require 'pry'
 class SessionsController < ApplicationController
   def new
     @user = User.new
     @users = User.all
   end
+
+  def facebook_create
+    @user = User.find_or_create_by(uid: auth['uid']) do |u|
+      u.name = auth['info']['name']
+      u.email = auth['info']['email']
+      u.uid = auth['uid']
+    end
+ 
+    log_in(@user)
+
+    redirect_to @user
+ 
+  end 
+
 
   def create
     user = User.find_by(email: params[:session][:email].downcase)
@@ -21,6 +36,11 @@ class SessionsController < ApplicationController
   def destroy
     log_out if logged_in?
     redirect_to root_url
+  end
+
+  private
+  def auth
+    request.env['omniauth.auth']
   end
 end
 

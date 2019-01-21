@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_20_211413) do
+ActiveRecord::Schema.define(version: 2019_01_21_080741) do
 
   create_table "lessons", force: :cascade do |t|
     t.string "name"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2019_01_20_211413) do
     t.string "password_digest"
     t.string "remember_digest"
     t.boolean "admin", default: false
+    t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

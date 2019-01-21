@@ -1,3 +1,4 @@
+require 'pry'
 class LessonsController < ApplicationController
 
     def index 
@@ -6,6 +7,6 @@ class LessonsController < ApplicationController
 
     def show
       @lesson = Lesson.find(params[:id])
-      @tips = Tip.find_by(:lesson_id, @lesson.id)
+      @tips = Tip.where(:lesson_id => @lesson.id)
     end 
 end
