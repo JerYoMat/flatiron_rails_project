@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       u.name = auth['info']['name']
       u.email = auth['info']['email']
       u.uid = auth['uid']
-      pwd = SecureRandom.hex 
+      pwd = SecureRandom.hex #To bypass validations for password set up in user model
       u.password = pwd 
       u.password_confirmation = pwd
     

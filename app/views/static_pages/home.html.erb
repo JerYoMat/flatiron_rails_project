@@ -9,7 +9,7 @@
       </section>
     </aside>
     <div class="col-md-8">
-      <h3>Tip Feed</h3>
+      <h3>Your Tips</h3>
       <%= render 'shared/feed' %>
     </div>
   </div>
@@ -22,7 +22,8 @@
     </h2>
 <button class = "standard-input-button">
     <%=link_to "Sign up now!", signup_path%>
-</button>
+</button><br><br>
+<%= link_to('Sign up with Facebook!', '/auth/facebook') %> 
   </div>
    <h3 id='plug'>What is the Flatiron School?  Who are you people? Check it out!     
   <%= link_to image_tag("learn.png", alt: "Learn Link"),

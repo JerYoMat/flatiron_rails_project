@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home 
-    @title = "Home"
+    @title = "LearnHELP"
     if logged_in?
       @options = @options = Lesson.all.map{|l| [l.name, l.id]}
       @tip  = current_user.tips.build

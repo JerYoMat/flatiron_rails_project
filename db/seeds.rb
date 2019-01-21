@@ -31,9 +31,10 @@ lesson_names = ["Ruby Basics", "Git and Github", "OO Ruby", "SQL", "ORM and Acti
 
 index = 0 
 while (index < lesson_names.length)
+  fake_content = Faker::Lorem.paragraph(sentence_count = 5, supplemental = false, random_sentences_to_add = 0).split('.')
   name = lesson_names[index]
   Lesson.create!(
-            name: name)
+            name: name, content: fake_content)
   index+=1
 end 
 

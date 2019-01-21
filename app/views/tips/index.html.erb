@@ -1,0 +1,9 @@
+<section class="tip_form">
+        <h1><%= @lesson.name%></h1>
+      <%= link_to "Add tip to this lesson", new_lesson_tip_path %>
+        <ol>
+
+             <%= render @tips %>
+        </ol>
+      <%= link_to "Add tip to this lesson", new_lesson_tip_path %>
+</section>

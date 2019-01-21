@@ -1,14 +1,30 @@
 require 'pry'
 class TipsController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy]
+  before_action :logged_in_user, only: [:new, :create, :destroy]
   before_action :correct_user,   only: :destroy
+
+  #Nested Routes
+  def index
+    @tips = Tip.where(:lesson_id => params[:lesson_id])
+    @lesson = Lesson.find(params[:lesson_id])
+    
+  end 
+
+
+  def new 
+    @tip = Tip.new(:lesson_id => params[:id], :user_id => current_user.id) 
+    @lesson = Lesson.find(params[:lesson_id])
+    @options = [[@lesson.name, @lesson.id]]
+  
+  end 
+#End Nested Routes 
 
 
   def create
     @tip = current_user.tips.build(tip_params)
     if @tip.save
       flash[:success] = "Thanks! Your tip has been added."
-      redirect_to root_url
+      redirect_to root_path
     else
       @feed_items = []  #This keeps failed submissions from breaking 
       render 'static_pages/home'
