@@ -15,15 +15,16 @@
   </div>
 <% else %>
   <div class="center jumbotron">
-    <h1>Welcome to the Sample App</h1>
+    <h1>Welcome to Learn HELP</h1>
 
     <h2>
-      Welcome to Learn Help 
+      A place for students to provide helpful tips to others feeling the pain of starting something new. 
     </h2>
-
-    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+<button class = "standard-input-button">
+    <%=link_to "Sign up now!", signup_path%>
+</button>
   </div>
 
-  <%= link_to image_tag("rails.png", alt: "Rails logo"),
-              'http://rubyonrails.org/' %>
+  <%= link_to image_tag("learn.png", alt: "Learn Link"),
+              'https://learn.co/' %>
 <% end %>

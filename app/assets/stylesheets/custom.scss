@@ -29,8 +29,26 @@ textarea {
   text-align: center;
   h1 {
     margin-bottom: 10px;
+    color: #00b3e6;
   }
 }
+
+.standard-input-button {
+  background-color: #013240;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.standard-input-button a {
+  color: white;
+}
+
 
 /* typography */
 
@@ -43,6 +61,7 @@ h1 {
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
+  
 }
 
 h2 {
@@ -61,6 +80,17 @@ p {
 
 
 /* header */
+#header {
+  background-color: #013240;
+}
+nav ul li a {
+  color: white;
+  &:hover {
+    color: #00b3e6;
+    background-color: #013240;
+    text-decoration: none;
+  }
+}
 
 #logo {
   float: left;
@@ -72,7 +102,7 @@ p {
   padding-top: 9px;
   font-weight: bold;
   &:hover {
-    color: white;
+    color: #00b3e6;
     text-decoration: none;
   }
 }

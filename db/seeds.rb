@@ -27,15 +27,16 @@ User.create!(name:  "Admin User",
              password_confirmation: "adminexample",
              admin: true)
 
+lesson_names = ["Ruby Basics", "Git and Github", "OO Ruby", "SQL", "ORM and ActiveRecord", "Rack and Middleware", "Sinatra", "Rails", "Javascript Basics", "Working with DOM", "CSS"]
 
-10.times do 
-  name = Faker::Name.name 
-  unit = "Rails"
+index = 0 
+while (index < lesson_names.length)
+  name = lesson_names[0]
   Lesson.create!(
-            name: name, 
-            unit: unit)
-
+            name: name)
+  index+=1
 end 
+
 
 
 users = User.order(:created_at).take(6)
@@ -48,5 +49,5 @@ users = User.order(:created_at).take(6)
     title: title,
     description: description,
     link: link,
-    lesson_id: rand(1..10)) }
+    lesson_id: rand(1..11)) }
 end
