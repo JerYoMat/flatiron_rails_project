@@ -28,7 +28,7 @@ class TipsController < ApplicationController
     else
       @options = []  
       @feed_items = []  #The empty array  keeps failed submissions from breaking 
-      render 'static_pages/home'
+      redirect_to root_path
     end
   end
 
