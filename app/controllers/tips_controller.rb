@@ -26,7 +26,8 @@ class TipsController < ApplicationController
       flash[:success] = "Thanks! Your tip has been added."
       redirect_to root_path
     else
-      @feed_items = []  #This keeps failed submissions from breaking 
+      @options = []  
+      @feed_items = []  #The empty array  keeps failed submissions from breaking 
       render 'static_pages/home'
     end
   end

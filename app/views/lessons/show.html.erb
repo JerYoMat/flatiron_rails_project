@@ -1,1 +1,7 @@
 <%= link_to "tips for this lesson", lesson_tips_path(@lesson)%>
+<h2>Topics covered in <%=@lesson.name %></h2>
+<ul>
+<% @lesson.content.each do |c|%>
+  <li><%= c %></li>
+<% end %>
+</ul>
