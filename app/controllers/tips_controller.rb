@@ -26,9 +26,9 @@ class TipsController < ApplicationController
       flash[:success] = "Thanks! Your tip has been added."
       redirect_to root_path
     else
-      @options = []  
+      @options = Lesson.all.map{|l| [l.name, l.id]}    
       @feed_items = []  #The empty array  keeps failed submissions from breaking 
-      redirect_to root_path
+      render 'static_pages/home'
     end
   end
 
