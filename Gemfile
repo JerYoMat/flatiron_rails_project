@@ -43,9 +43,9 @@ gem 'pry'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-
+ gem 'sqlite3'
 group :development do
-  gem 'sqlite3'
+ 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
@@ -67,10 +67,6 @@ group :test do
   gem 'minitest-reporters',       '1.1.14'
   gem 'guard',                    '2.13.0'
   gem 'guard-minitest',           '2.4.4'
-end
-
-group :production do
-  gem 'pg', '0.18.4'
 end
 
 
