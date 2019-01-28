@@ -10,22 +10,21 @@
 $("button").click(function (e) { 
   let lesson_id = parseInt(e["target"]["id"])
   loadContent(lesson_id)
-}}
-
-function loadContent(id) {
-  $.get('/lessons/'+id, function(data){
-     div_id = `${id}_content`
-     $('#'+div_id).append("<ul id='lesson_list'>")
-     let i = 0
-     while (i < data['content'].length) {
-        $('#'+div_id).append(`<li id='lesson_list' >${data['content'][i]}</li>`)
-        i++
-        if (i==data['content'].length) {
-            $('#'+div_id).append("</ul><br>") 
-            $('#'+div_id).append(`<button id=${div_id}_tips class='more_button'>Show Tips</button>`)
-        }
-     }
-
 })
-}
+
+  function loadContent(id) {
+    $.get('/lessons/'+id+'.json', function(data){
+      div_id = `${id}_content`
+      $('#'+div_id).append("<ul id='lesson_list'>")
+      let i = 0
+      while (i < data['content'].length) {
+          $('#'+div_id).append(`<li id='lesson_list' >${data['content'][i]}</li>`)
+          i++
+          if (i==data['content'].length) {
+              $('#'+div_id).append("</ul><br>") 
+              $('#'+div_id).append(`<button id=${div_id}_tips class='more_button'>Show Tips</button>`)
+          }
+      }
+    })
+  }
 </script>

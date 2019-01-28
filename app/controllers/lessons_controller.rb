@@ -7,9 +7,12 @@ class LessonsController < ApplicationController
 
     def show
       @lesson = Lesson.find(params[:id])
-     # @tips = Tip.where(:lesson_id => @lesson.id)
-     
-      render json: @lesson 
+      @tips = Tip.where(:lesson_id => @lesson.id)
+     respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @lesson }
+    end
+    
 
     end 
 end
