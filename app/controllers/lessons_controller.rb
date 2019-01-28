@@ -7,6 +7,9 @@ class LessonsController < ApplicationController
 
     def show
       @lesson = Lesson.find(params[:id])
-      @tips = Tip.where(:lesson_id => @lesson.id)
+     # @tips = Tip.where(:lesson_id => @lesson.id)
+     
+      render json: @lesson 
+
     end 
 end

@@ -7,6 +7,10 @@ class TipsController < ApplicationController
   def index
     @tips = Tip.where(:lesson_id => params[:lesson_id])
     @lesson = Lesson.find(params[:lesson_id])
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @tips }
+    end
     
   end 
 
