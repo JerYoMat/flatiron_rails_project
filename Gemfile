@@ -29,11 +29,14 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'faker'
 gem 'will_paginate',           '3.1.6'
 gem 'bootstrap-will_paginate', '1.0.0'
+# For facebook and github buttons
 gem 'bootstrap-social-rails'
 gem 'font-awesome-rails'
+# REquired to implement OAuth 
 gem 'omniauth-facebook'
 gem 'omniauth-github'
 gem 'dotenv-rails'
+#another way to start a server, however, this one can use ssl
 gem 'thin'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

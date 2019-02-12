@@ -30,7 +30,6 @@ class UsersController < ApplicationController
 
   def show
     @title = "Profile Page"
-    #debugger #uses byebug gem and provides a console in the browser
     @tips = @user.tips.paginate(page: params[:page])
   end 
   

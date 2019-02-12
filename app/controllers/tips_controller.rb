@@ -15,7 +15,6 @@ class TipsController < ApplicationController
     @tip = Tip.new(:lesson_id => params[:id], :user_id => current_user.id) 
     @lesson = Lesson.find(params[:lesson_id])
     @options = [[@lesson.name, @lesson.id]]
-  
   end 
 #End Nested Routes 
 

@@ -1,8 +1,7 @@
 class User < ApplicationRecord
-  has_many :tips, dependent: :destroy
+  has_many :tips, dependent: :destroy  #dependent destroy makes sure that tips are deleted if user is deleted
   has_many :lessons, through: :tips 
-  attr_accessor :remember_token
-
+  attr_accessor :remember_token #needed in case user checks remember me 
 
 validates :name, presence: true, length: {maximum:50} 
 before_save { self.email = email.downcase }
@@ -12,7 +11,6 @@ validates :email, presence: true, length: { maximum: 255 },
                     uniqueness: { case_sensitive: false }
 
                     has_secure_password
-
 validates :password, presence: true, length: { minimum: 6 },  allow_nil: true #the nil is there so when a user updates their profile they do not have to enter their password again.  New users are still required to provide a password with at least six characters. 
 
 def self.digest(string)
@@ -30,8 +28,6 @@ def remember
   self.remember_token = User.new_token
     update_attribute(:remember_digest, User.digest(remember_token))
 end
-
-
 
 
 #Note that the remember_token argument in the authenticated? method is not the same as the attr_accessor defined up top.  

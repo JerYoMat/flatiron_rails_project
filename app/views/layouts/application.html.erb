@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <!--To include a favicon include the below line as well as favicon.ico in assets/images  -->
 <%= favicon_link_tag asset_path('favicon.ico') %>
+  <!--Call out title in every controller action so that it updates across all views appropriatelye -->
     <title><%= @title %></title>
+  
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all',
                                               'data-turbolinks-track': 'reload' %>
+  
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-   <!--Pulls in code for browsers pre IE9 -->
+   <!-- 
+The HTML5 Shiv enables use of HTML5 sectioning elements in legacy Internet Explorer and provides basic HTML5 styling for Internet Explorer 6-9, Safari 4.x (and iPhone 3.x), and Firefox 3.x. https://github.com/aFarkas/html5shiv-->
     <%= render 'layouts/shim' %>
   
   </head>
   <body>
     <%= render 'layouts/header' %>
+   <!-- container class is necessary for bootstrap to use grid system https://getbootstrap.com/docs/4.0/layout/overview/ -->
     <div class="container">
-      <% flash.each do |message_type, message| %>
+      <% flash.each do |message_type, message| %> <!--flash = { success: "It worked!", danger: "It failed." }  message type is the key and message is the value-->
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
       <%= yield %>
