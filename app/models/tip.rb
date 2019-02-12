@@ -2,6 +2,7 @@ class Tip < ApplicationRecord
   belongs_to :user 
   belongs_to :lesson 
   default_scope -> { order(created_at: :desc) }  #stabby lambda
+#Need to remove defaulst scope to use  scope :oldest_to_newest, -> {order(created_at: :asc)}
   validates :user_id, presence: true
   validates :lesson_id, presence: true
   validates :title, presence: true, length: {minimum: 5}
