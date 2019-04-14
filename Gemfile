@@ -10,7 +10,7 @@ gem 'rake'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.4.1'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -30,7 +30,7 @@ gem 'faker'
 gem 'will_paginate',           '3.1.6'
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'bootstrap-social-rails'
-gem 'font-awesome-rails'
+gem 'font_awesome5_rails'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
 gem 'dotenv-rails'
@@ -42,7 +42,7 @@ gem 'pry'
 # gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootsnap', '~> 1.4.0', require: false
  
 group :development do
  gem 'sqlite3'

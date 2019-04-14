@@ -14,5 +14,5 @@
  *= require_self
  *= require static_pages.css
  *= require bootstrap-social
- *= require font-awesome
+ *= require font_awesome5_webfont
  */
