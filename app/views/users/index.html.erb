@@ -1,11 +1,12 @@
 <h1>User Index</h1>
 <!--uses will-paginate gem to limit the number that appears at once this also needs to be implemented at the index action within the users controller-->
 
-<%= will_paginate %>
+
 <ul class="users">
+
   <%= render @users%> 
 </ul>
-<%= will_paginate %>
+
 <!--Each of the will_paginate items adds in a little bar with page numbers.  Putting one at the top and bottom is merely for being friendly to users -->
 
 <!-- will_paginate iterates through users on its own so by refactoring the user bit we wish to display we can make this form very concise -->

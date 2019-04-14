@@ -6,11 +6,11 @@ class UsersController < ApplicationController
   
   def index 
     @title = "User Index"
-    @users = User.paginate(page: params[:page])
+    @users = User.all
       #paginate takes a hash argument with key :page and value equal to the page requested.  'params[:page]' is generated automatically by the will-paginate gem
   end 
 
-  
+
 
   def new 
     @title = "Sign Up"
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   def show
     @title = "Profile Page"
     #debugger #uses byebug gem and provides a console in the browser
-    @tips = @user.tips.paginate(page: params[:page])
+    @tips = @user.tips
   end 
   
   def edit 
